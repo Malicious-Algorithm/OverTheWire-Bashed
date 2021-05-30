@@ -1,0 +1,43 @@
+
+we ssh to leviathan1@leviathan.labs.overthewire.org -p 2223
+
+	1) ls -la 
+
+		-> here we see a setuid binary 
+
+	-r-sr-x---  1 leviathan2 leviathan1 7452 Aug 26  2019 check
+
+		the "s" tag tells us that this binary can execute liviathan2 commands!
+			but there is a catch here, it ask us for the password.
+				Since we don't know that password, we can take a look at 
+					the strings inside this binary
+	2) strings check
+
+		gives us nothing, but if we take a look at trace and ltrace, to see the syscalls 
+			being made by the binary, gives us interesting things !
+
+
+	3)trace ./check  
+		->we see that write() and read() but this is not as interesting as ltrace
+
+	4)ltrace ./check
+		->we see the famous "strcp()" func
+
+leviathan1@leviathan:~$ ltrace ./check 
+
+__libc_start_main(0x804853b, 1, 0xffffd774, 0x8048610 <unfinished ...>
+printf("password: ")                                                                  = 10
+getchar(1, 0, 0x65766f6c, 0x646f6700password: )                                       = 10
+getchar(1, 0, 0x65766f6c, 0x646f6700)                                                 = 10
+getchar(1, 0, 0x65766f6c, 0x646f6700)                                                 = 10
+strcmp("\n\n\n", "sex")								      = -1
+puts("Wrong password, Good Bye ..."Wrong password, Good Bye ...)                                                  = 29
++++ exited (status 0) +++
+
+	-> well that's the password! "sex", 
+
+	5) # cat /etc/leviathan_pass/leviathan2
+
+		YAY
+
+flag: ougahZi8Ta	

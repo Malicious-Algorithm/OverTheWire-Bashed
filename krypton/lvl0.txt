@@ -1,0 +1,12 @@
+
+
+Welcome to Krypton! The first level is easy. The following string encodes the password using Base64:
+
+S1JZUFRPTklTR1JFQVQ=
+
+Simple base64 decode
+
+	1) echo "S1JZUFRPTklTR1JFQVQ=" | base64 -d
+
+
+flag: KRYPTONISGREAT
