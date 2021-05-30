@@ -1,0 +1,22 @@
+The password for the next level is stored in a file called 
+"spaces in this filename" located in the home directory
+
+
+here we have a file with spaces, and a space it's a special character.
+Therefore we have to find a way to skip those special characters.
+
+
+	1)cat spaces\ in\ this\ filename  -> if we specify a \ followed by a space, we're
+						basically skipping those special char.
+
+	2)cat "spaces in this filename"  -> same idea, but using double quotes
+
+	3) cat sp*   -> here i'm asking to cat a file starting with sp and whatever thing follows
+	4) cat *me   -> same idea but backwards
+	5) cat *this*   -> same idea but here is like saying "there is something, 
+				then a certain string then somtheing else".
+
+	6) cat $(pwd)/*  -> same as lvl1 
+
+
+flag: UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK  

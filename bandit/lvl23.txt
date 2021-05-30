@@ -1,0 +1,15 @@
+A program is running automatically at regular intervals from cron, the time-based job scheduler. 
+Look in /etc/cron.d/ for the configuration and see what command is being executed.
+
+NOTE: This level requires you to create your own first shell-script
+
+here we have to create our own shell scritp, easy shell script
+
+	1) cat /etc/bandit_pass/bandit24 > /tmp/tmp.<sth>/passwrd.txt
+
+	->we had to chmod o+xrw the tmp folder we were in
+	->send a copy to the directory where the scripts are executed then deleted
+	->and we got it!
+
+
+flag: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ

@@ -1,0 +1,16 @@
+There is a setuid binary in the homedirectory that 
+does the following: it makes a connection to localhost on the 
+port you specify as a commandline argument. It then reads a line of 
+text from the connection and compares it to the password in the previous level (bandit20). If 
+the password is correct, it will transmit the password for the next level (bandit21).
+
+NOTE: Try connecting to your own network daemon to see if it works as you think
+
+
+here it was tricky for me, i had to google how to do it 'cause i was hitting my head against the wall
+
+	1) ./suconnect 5432
+		-> but we had to connect again and nc -nlvp 5432
+			->then submmit the password and he sent it back
+
+flag: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr

@@ -1,0 +1,17 @@
+There is a git repository at ssh://bandit28-git@localhost/home/bandit28-git/repo. 
+The password for the user bandit28-git is the same as for the user bandit28.
+
+here all we can see inside of README.md is:
+
+	 username: bandit29
+	 password: xxxxxxxxxx
+
+so we have to find a way to read the changes that have been made
+
+	1) git log -p 
+
+- username: bandit29
+-- password: bbc96594b4e001778eee9975372716b2
++- password: xxxxxxxxxx
+
+flag: bbc96594b4e001778eee9975372716b2

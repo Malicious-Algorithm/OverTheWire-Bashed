@@ -1,0 +1,29 @@
+The password for the next level is stored in the only human-readable file in the inhere directory. 
+Tip: if your terminal is messed up, try the “reset” command.
+
+here we have to look for ASCII text so
+
+	1) file inhere/* 
+		cat -file07   -> first we ask about which context have those files
+					then we cat out the file with the output: ASCII
+
+	2) file inhere/-file0* | grep "ASCII" | awk -F: '{print $1}' | xargs cat
+				-> here we ask find to output the context of the files
+				    then we grep only the ones that returned ASCII
+				      then we grab the first argument with awk $1
+					then we cat that file in paralel. 
+
+	let's take it slowly
+		So we have this command 
+			
+			-> file inhere/-file0* | grep "ASCII"
+				outputs: inhere/-file07: ASCII text
+		
+		Then we have | awk -F: '{print $1}'
+				outputs: inhere/-file07
+
+		Lastly we have | xargs cat
+				koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+
+
+flag: koReBOKuIDDepwhWk7jZC0RTdopnAYKh

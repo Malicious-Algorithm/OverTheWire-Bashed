@@ -1,0 +1,18 @@
+There is a git repository at ssh://bandit29-git@localhost/home/bandit29-git/repo. 
+The password for the user bandit29-git is the same as for the user bandit29
+
+here we have to clone the repo but there is a catch
+
+	README.md does not gives us the flag
+	
+	and git log -p neither
+
+so we have to take a look at all the branches 
+	
+	1) git branch -r
+
+	2) git checkout dev
+
+	3) cat README.md
+
+flag: 5b90576bedb2cc04c86a9e924ce42faf

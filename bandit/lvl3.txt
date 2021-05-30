@@ -1,0 +1,27 @@
+The password for the next level is stored in a hidden file in the inhere directory.
+
+here we can do
+	
+	1) cat inhere/.hidden
+	2) cat $(pwd)/inhere/.hidden
+
+	3) cat inhere/.*   -> this command gives us some error msg, so it's not pretty		
+	
+	4) cat inhere/.* 2>/dev/null  -> here we are redirecting those error msg to /dev/null
+					  i think about /dev/null as a "black hole" :D
+
+	5) cat $(find . -name .hidden)  -> find works recursively, and that's why we can call
+					    find from the present dir. 
+
+	6) cat $(find inhere/ -name .hidden)  -> we are catting a syscall where we call "find"
+						  -name and <the name of the file>
+
+	7) find inhere/ -name .hidden | xargs cat   -> this is a parallel syscall that executes a 
+							given command over a certain command we've 
+							  specified before
+
+	/*  aca le estamos diciendo a xargs para que de forma						
+	  paralela ejecutar comandos sobre el output de un comando
+	  ejecutado anteriormente */						   
+
+flag: pIwrPrtPN36QITSp3EQaw936yaFoFgAB

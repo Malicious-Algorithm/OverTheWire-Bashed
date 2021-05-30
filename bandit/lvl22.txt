@@ -1,0 +1,30 @@
+A program is running automatically at regular intervals 
+from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command 
+is being executed.
+
+NOTE: Looking at shell scripts written by other people is a very useful skill. The script 
+for this level is intentionally made easy to read. If you are having problems understanding what 
+it does, try executing it to see the debug information it prints.
+
+
+we have to read the script and cat the file 
+
+	1) bandit22@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit23.sh
+		#!/bin/bash
+
+		myname=$(whoami)
+		mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+		echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+		cat /etc/bandit_pass/$myname > /tmp/$mytarget
+	
+	So if we do like: echo "I am user bandit23" | md5sum | cut -d ' ' -f 1
+		it give us this md5 hash: 8ca319486bfbbc3663ea0fbe81326349
+
+	and now we can cat that file:
+
+		bandit22@bandit:/$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+
+
+flag: jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+

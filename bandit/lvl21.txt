@@ -1,0 +1,28 @@
+A program is running automatically at regular intervals from cron, the time-based job scheduler. 
+Look in /etc/cron.d/ for the configuration and see what command is being executed.
+
+
+The concept of cron jobs are introduced to us here.
+	so from what i understand, a chron job are jobs that are executed whithin a range of time 
+		at a system level.
+
+	so here i did:
+
+	bandit21@bandit:~$ cd /etc/cron.d/
+	bandit21@bandit:/etc/cron.d$ ls
+		cronjob_bandit15_root  cronjob_bandit22  cronjob_bandit24
+		cronjob_bandit17_root  cronjob_bandit23  cronjob_bandit25_root
+	
+	bandit21@bandit:/etc/cron.d$ cat cronjob_bandit22
+		@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+		* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+	
+	bandit21@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit22.sh
+		#!/bin/bash
+		chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+		cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+	bandit21@bandit:~$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+
+flag: Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI

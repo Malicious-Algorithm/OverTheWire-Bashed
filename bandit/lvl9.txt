@@ -1,0 +1,9 @@
+The password for the next level is stored in the file data.txt in one of 
+the few human-readable strings, preceded by several ‘=’ characters.
+
+
+	1) strings data.txt | grep "===" | tail -n 1 | awk '{print $2}'
+			-> tail -n 1 gives us the last line of the output
+
+
+flag: truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk 

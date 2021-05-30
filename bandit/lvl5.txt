@@ -1,0 +1,32 @@
+The password for the next level is stored in a file somewhere under the 
+inhere directory and has all of the following properties:
+
+    human-readable
+    1033 bytes in size
+    not executable
+
+here we can 
+	
+	1) file inhere/maybehere*/* | grep "ASCII" | find ! -executable -size 1033c | xargs cat
+			-> interesting here is that find can look for certain characteristics
+				of a files/s. 
+	
+	the thing is that the command above gives us the flag, but has a lot of spaces
+		and the shell starts to behave funny.. So i came across with Regex.
+
+	------------------------------------------------------------------------------
+	find . -type f -readable ! -executable -size 1033c | xargs cat | sed 's/ //g'
+	------------------------------------------------------------------------------
+
+	sed sustituye cosas.
+
+	sed 's/ //g'  s -> makes the substitution,  / / -> this is the spaces,
+			// ->  we want the answer with no spaces
+			g -> is for global. YAY
+
+
+	2) find . -type f -readable ! -executable -size 1033c | xargs cat | xargs
+			-> this command is faster than previous one. INTERESTING here is 
+				that last xargs empty ,which formats the output without 
+					spaces or tabulations !!
+		

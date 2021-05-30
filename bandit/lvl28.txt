@@ -1,0 +1,13 @@
+There is a git repository at ssh://bandit27-git@localhost/home/bandit27-git/repo. 
+The password for the user bandit27-git is the same as for the user bandit27.
+
+
+here we have to clone the repo
+
+	1) mktemp -d
+	2) cd <there>
+	3) git clone <that repo>
+
+	4) cat repo/README
+
+flag: 0ef186ac70e04ea33b4c1853d2526fa2

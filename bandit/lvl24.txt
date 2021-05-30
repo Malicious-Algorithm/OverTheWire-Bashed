@@ -1,0 +1,26 @@
+A daemon is listening on port 30002 and will give you the password for bandit25 if 
+given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to 
+retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
+
+
+here we wave to create another shell-script to send kind of like a dictionary
+
+	1) shell:
+		#!/bin/bash
+			pasBandit23: "asdasd"
+			for i in {0000..9999}
+			do
+				echo $pasBandit23 $i
+			done
+
+
+		-> save the script into tmp folder (mktemp -d)
+		-> remember to chmod +x it
+		-> now here is the thing, we can cat the output of the script we've just created
+			and store all those combinations or number into a file
+		-> ./script.sh > passwrd.txt
+	
+		-> now we can just simply do: cat passwrd.txt | nc localhost 30002
+			and should print the flag!
+		
+flag: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG

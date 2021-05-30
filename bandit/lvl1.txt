@@ -1,0 +1,25 @@
+The password for the next level is stored in a file called readme located 
+in the home directory. Use this password to log into bandit1 using SSH. 
+Whenever you find a password for a level, use SSH (on port 2220) to log into that 
+level and continue the game.
+
+
+Here i have to deal with special characters, how can i read a file named: -
+well i can do:
+	1) cat ./-    -> and what i'm basically asking is, from the present directory
+				read the file named -
+	
+	2)cat ./*     -> the same idea, but here i'm using a wild card that says
+				"cat all the files in the present directory".
+
+	3)more ./-
+	4)cat /home/bandit1/-  -> here we are reading from path.
+	
+	5)cat $(pwd)/-	    -> we know that "pwd" command gives us the path we're currently in
+				so we can specify to cat a "Syscall" followed by the file we 
+					want to read.
+
+	6)cat $(pwd)/*	    -> same as before but using a wild card.
+
+
+flag: CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9

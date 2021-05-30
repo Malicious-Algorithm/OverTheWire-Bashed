@@ -1,0 +1,11 @@
+To gain access to the next level, you should use the setuid binary in the homedirectory. 
+Execute it without arguments to find out how to use it. The password for this level can be 
+found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
+
+here we have a setud binary which we can "exploit" per say. 
+	a setuid binary can execute commands at level of the owner of the file.
+	and this is quite dangerous beacose we can do sth like this:
+	
+	1) ./bandit20-do cat /etc/bandit_pass/bandit20
+
+flag: GbKksEFF4yrVs6il55v6gwY5aVje5f0j

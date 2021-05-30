@@ -1,0 +1,12 @@
+The password for the next level is stored in the file data.txt, which contains base64 encoded data
+
+
+	1) cat data.txt | base64 -d
+		-> -d is for decode
+
+	2) cat data.txt | base64 -d | awk '{print $4}'
+
+	3) cat data.txt | base64 -d | tr ' ' '\n' | tail -n 1
+
+flag: IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+

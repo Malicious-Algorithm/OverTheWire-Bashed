@@ -1,0 +1,15 @@
+The password for the next level is stored in a file readme in the homedirectory. 
+Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.
+
+
+here when we try to log in via SSH, the server kicks us out before we have the chance to
+insert a command. So here we can input a comand in the same line where we use ssh to connect to
+
+	1) ssh bandit18@bandit.labs.overthewire.org -p 2220 bash
+
+		-> notice the "bash" parameter, so we could've input a "ls" command
+			then a car on the readme file, and so on..
+		-> but rather we pop a bash shell that way we interact with server in a better way
+
+
+flag: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
