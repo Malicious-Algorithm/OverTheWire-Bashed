@@ -1,0 +1,10 @@
+Now it's getting a bit trickier, there's nothing on the source code of the page but an endpoint where there is a png.
+
+Inside this endpoint there are 2 files stored: 
+http://natas2.natas.labs.overthewire.org/files/
+	-> pixel.png
+	-> users.txt
+
+Reading users.txt we get the password to the next level:
+
+	->Password: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14

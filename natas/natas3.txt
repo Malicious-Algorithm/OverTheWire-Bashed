@@ -1,0 +1,12 @@
+In the source code of the page we get this announce:
+	<!-- No more information leaks!! Not even Google will find it this time... -->
+
+So i'm thinking about robots.txt file.
+http://natas3.natas.labs.overthewire.org/robots.txt
+
+And here we get an inteesting endpoint we can take a look
+http://natas3.natas.labs.overthewire.org/s3cr3t/
+
+And inside the previous endpoint we find the "users.txt" file where we can read the password!
+	-> Usser: natas4
+	-> Password: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ

@@ -1,0 +1,42 @@
+This level it's very similar to natas6 where we're asked to input a text or a "secret"
+
+Let's look at the source code first:
+
+<?
+
+$encodedSecret = "3d3d516343746d4d6d6c315669563362";
+
+function encodeSecret($secret) {
+    return bin2hex(strrev(base64_encode($secret)));
+}
+
+if(array_key_exists("submit", $_POST)) {
+    if(encodeSecret($_POST['secret']) == $encodedSecret) {
+    print "Access granted. The password for natas9 is <censored>";
+    } else {
+    print "Wrong secret";
+    }
+}
+?>
+
+<form method=post>
+Input secret: <input name=secret><br>
+<input type=submit name=submit>
+</form>
+
+
+So the secret is encoded in various formats:
+	
+	First let's decode bin2Hex this string -> 3d3d516343746d4d6d6c315669563362
+		which gives us: -> ==QcCtmMml1ViV3b
+	
+	Sencond lets reverse that string
+		giving: -> b3ViV1lmMmtCcQ==   (it's very obvious this is base64)
+	
+	Thirdly decode in base64 that last string 
+		giving: -> oubWYf2kBq
+
+
+And lastly let's input that string. As expected here is the password:
+
+	-> Access granted. The password for natas9 is W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl

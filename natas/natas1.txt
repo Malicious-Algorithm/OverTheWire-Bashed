@@ -1,0 +1,9 @@
+
+	-> creds:
+		-> usser: natas1
+		-> password: gtVrDuiDfck831PqWsLEZy5gyDz1clto
+		-> url: http://natas1.natas.labs.overthewire.org/
+
+right click is not allowed, so just Ctrl+u will do
+
+		-> password: ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi

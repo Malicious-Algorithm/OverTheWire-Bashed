@@ -1,0 +1,31 @@
+This level ask us to input a word and display words starting with whatever word we give it
+let's take a look at the code and how it does it:
+
+	<form>
+		Find words containing: 
+			<input name=needle><input type=submit name=submit value=Search><br><br>
+	</form>
+
+
+Output:
+<pre>
+<?
+$key = "";
+
+if(array_key_exists("needle", $_REQUEST)) {
+    $key = $_REQUEST["needle"];
+}
+
+if($key != "") {
+    passthru("grep -i $key dictionary.txt");    //->(this fuction execute whatever command we input)
+}
+?>
+
+So if we input something like: 
+	-> a; echo "hola!"
+		it's going to return the output of the words on the dictionary matching the word "a" AND it's going to execute
+			the command echo. And this is the issue.
+
+	Knowing this, we can read the file from /etc/natas_webpass/natas10 and we know this route works bc of natas lvl7! 
+
+	-> nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu

@@ -1,0 +1,44 @@
+We're asked to input a secret in a <input> html tag. Since we don't know the secret let's take a look at the source code of the page
+
+<form method=post>
+Input secret: <input name=secret><br>
+<input type=submit name=submit>
+</form>
+
+<div id="viewsource"><a href="index-source.html">View sourcecode</a></div>
+
+And:
+
+<?
+
+include "includes/secret.inc";
+
+    if(array_key_exists("submit", $_POST)) {
+        if($secret == $_POST['secret']) {
+        print "Access granted. The password for natas7 is <censored>";
+    } else {
+        print "Wrong secret";
+    }
+    }
+?>
+
+<form method=post>
+Input secret: <input name=secret><br>
+<input type=submit name=submit>
+</form>
+
+
+So in the firs line inside the PHP tags, it's including a file fom "includes/secret.inc"
+and checking if the "secret" is the same we're sending trough the POST request inside the <form> tag from above.
+
+Let's check that file:
+	->http://natas6.natas.labs.overthewire.org/includes/secret.inc
+		
+		<?
+		   $secret = "FOEIUWGHFEEUHOFUOIU";
+		?>
+
+And that's the secret we have to input on the <input> tag inside the <form> !
+
+
+		->Access granted. The password for natas7 is 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9

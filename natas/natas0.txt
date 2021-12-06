@@ -1,0 +1,15 @@
+Natas is related to web-app hacking and common vulns you can find in code
+
+Since this is the first level, it's going to be a piece of cake
+
+	-> url: http://natas0.natas.labs.overthewire.org/
+	-> creds: 
+		-> Usser: natas0
+		-> Password: natas0
+
+
+Here we right-click and click on "View page source" to look at the source code of the page. 
+We find the password for the next level
+
+	
+<!--The password for natas1 is gtVrDuiDfck831PqWsLEZy5gyDz1clto -->
